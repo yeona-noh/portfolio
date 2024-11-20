@@ -1,0 +1,154 @@
+.header-container {
+  position: sticky;
+  top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  transition: 0.5s ease-in;
+  box-shadow: 0 2px 5px #4b4b4b;
+  z-index: 10;
+}
+.extended-header-size {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  right: 100px;
+}
+
+.header-name {
+  margin-top: 15px;
+  margin-left: 100px;
+}
+.header-menu {
+  right: 30;
+  display: flex;
+  list-style: none;
+  margin-right: 100px;
+}
+
+.menu {
+  position: relative;
+  margin-left: 10px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  width: 80px;
+  height: 25px;
+  font-weight: 200;
+  color: var(--main-color);
+  text-align: center;
+}
+.menu::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  left: 5px;
+  margin: auto;
+  bottom: 0;
+  width: 0;
+  background: var(--main-color);
+  transition: width 0.5s;
+}
+.menu:hover::after {
+  width: 80px;
+}
+.menu-bar {
+  cursor: pointer;
+}
+@media screen and (min-width: 951px) {
+  .menu-bar {
+    display: none;
+  }
+
+  .header-menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .header-name {
+    position: absolute;
+    margin-left: 100px;
+    top: 0;
+  }
+  .menu-bar {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 20px;
+    right: 100px;
+  }
+
+  @keyframes expandMenu {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 150px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapseMenu {
+    from {
+      height: 150px;
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  .extended-header-size {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .extended-header-size.open {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    width: 95.6%;
+    max-height: 150px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--secondary-color);
+    animation: expandMenu 1s ease forwards;
+  }
+  .extended-header-size.close {
+    max-height: 0;
+    opacity: 0;
+    animation: collapseMenu 1s ease forwards;
+  }
+  .menu {
+    width: 100%;
+    padding: 3px;
+    margin-left: -30px;
+    margin-right: 0;
+    color: var(--main-color);
+    font-size: 1.2rem;
+    transition: color 0.5s ease;
+  }
+  .menu:hover {
+    color: black;
+  }
+  .menu::after {
+    display: none;
+  }
+}
