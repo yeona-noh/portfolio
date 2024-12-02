@@ -7,7 +7,7 @@ const PROJECTS = [
     title: "Mindfulday",
     description: "Online yoga and meditation classes",
     language:"Used React for frontend framwork, django for backend, and database for postgrSQL.",
-    link: "/",
+    link: "https://mindfulday-2c630495ca20.herokuapp.com/",
     icon: ["/img/react.png", "/img/django.png"],
   },
   {
