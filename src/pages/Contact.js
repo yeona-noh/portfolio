@@ -2,10 +2,11 @@ import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
 
+
 const Contact = () => {
-  const SERVICE_ID = "service_o0bjomi";
-  const TEMPLATE_ID = "template_bi6crge";
-  const PUBLIC_KEY = "wAwzs-Lo3O9VAbYKS";
+  const SERVICE_ID = process.env.SERVICE_ID;
+  const TEMPLATE_ID = process.env.TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.PUBLIC_KEY;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
