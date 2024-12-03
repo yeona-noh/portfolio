@@ -11,6 +11,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [notification, setNotification] = useState({message:"", type:""});
 
   const form = useRef();
 
@@ -27,14 +28,20 @@ const Contact = () => {
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateparams, PUBLIC_KEY).then(
       function (response) {
         console.log("SUCCESS!", response.status, response.text);
+        setNotification({ message: "Message sent successfully!", type: "success"})
       },
       function (error) {
         console.log("FAILED...", error);
+        setNotification({message:"Failed to send message. Please try again.", type:"error"})
       }
     );
     setName("");
     setEmail("");
     setMessage("");
+
+    setTimeout(() => {
+      setNotification("")
+    }, 10000)
   };
 
   return (
@@ -76,6 +83,11 @@ const Contact = () => {
           />
           <input className="button" type="submit" value="Send" />
         </form>
+        {notification.message && (
+          <div className={`notification ${notification.type}`}>
+            {notification.message}
+          </div>
+        )}
       </div>
     </div>
   );
