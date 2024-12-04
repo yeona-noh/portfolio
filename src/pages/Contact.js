@@ -4,9 +4,9 @@ import "./contact.css";
 
 
 const Contact = () => {
-  const SERVICE_ID = process.env.SERVICE_ID;
-  const TEMPLATE_ID = process.env.TEMPLATE_ID;
-  const PUBLIC_KEY = process.env.PUBLIC_KEY;
+  const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
+  const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
