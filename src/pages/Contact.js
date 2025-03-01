@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
 
-
 const Contact = () => {
   const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
   const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
@@ -11,7 +10,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [notification, setNotification] = useState({message:"", type:""});
+  const [notification, setNotification] = useState({ message: "", type: "" });
 
   const form = useRef();
 
@@ -28,11 +27,17 @@ const Contact = () => {
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateparams, PUBLIC_KEY).then(
       function (response) {
         console.log("SUCCESS!", response.status, response.text);
-        setNotification({ message: "Message sent successfully!", type: "success"})
+        setNotification({
+          message: "Message sent successfully!",
+          type: "success",
+        });
       },
       function (error) {
         console.log("FAILED...", error);
-        setNotification({message:"Failed to send message. Please try again.", type:"error"})
+        setNotification({
+          message: "Failed to send message. Please try again.",
+          type: "error",
+        });
       }
     );
     setName("");
@@ -40,48 +45,59 @@ const Contact = () => {
     setMessage("");
 
     setTimeout(() => {
-      setNotification("")
-    }, 10000)
+      setNotification("");
+    }, 10000);
   };
 
   return (
-    <div className="contact">
-      <div className="contact-wrapper">
-        <div className="left-contact-container">
-          <h1 className="contact-title">
-            <img className="contact-icon" src="../img/contactme.png" alt="contct-folder"></img>CONTACT
-          </h1>
-          <p className="email-box">Direct email: yeonanoh12@gmail.com</p>
-        </div>
+    <section name="contact" className="section-contact">
+    
+      <div className="form-box">
+        <h2>&#9993; Here is my direct contact information:</h2>
+        <p className="email-text">
+          Feel free to reach me with any questions and business inquiries!
+        </p>
+        <p className="email-box">yeonanoh12@gmail.com</p>
 
         <form className="contact-form" ref={form} onSubmit={sendEmail}>
-          <input
-            type="text"
-            name="user_name"
-            value={name}
-            placeholder="Name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-          <input
-            type="email"
-            name="user_email"
-            value={email}
-            placeholder="Email address"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <textarea
-            name="message"
-            value={message}
-            placeholder="Message"
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-          />
-          <input className="button" type="submit" value="Send" />
+          <div>
+            <label for="full-name">Full name</label>
+            <input
+              type="text"
+              name="user_name"
+              value={name}
+              placeholder="Name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              name="user_email"
+              value={email}
+              placeholder="Email address"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
+
+          <div className="message-box">
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              value={message}
+              placeholder="Message"
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+            />
+          </div>
+          <input className="btn" type="submit" value="Send" />
         </form>
         {notification.message && (
           <div className={`notification ${notification.type}`}>
@@ -89,7 +105,7 @@ const Contact = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
