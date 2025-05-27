@@ -6,6 +6,30 @@ function Project() {
     <section name="projects" className="section-projects">
       <div className="project-container">
         <div className="img-grid">
+          <div className="text-box">
+            <h2 className="project-title">
+              <a href="https://https://net-yeona-flix.netlify.app">
+                Neflix(Demo) ⭢
+              </a>
+            </h2>
+            <p className="short-description">
+              A Netflix demo app built to practice UI design, routing, and API
+              integration with modern web technologies.
+            </p>
+            <p className="tool-description">
+              Built using React.js and the TMDB API, this project demonstrates
+              skills in data fetching with React Query, dynamic movie filtering
+              by genre, search and sort functionality, trailer playback, and
+              fully responsive UI design.
+            </p>
+          </div>
+
+          <figure className="img-box">
+            <img src="/img/netflix.png" alt="netflix theme demonstration web application" />
+          </figure>
+        </div>
+
+        <div className="img-grid">
           <figure className="img-box">
             <img
               src="/img/mindfulday.png"
@@ -96,13 +120,13 @@ function Project() {
             </p>
             <p className="tool-description">
               A real estate listing web application built using HTML, CSS and
-              JavaScript from the frontend, providing a clean and responsive user
-              interface. The backend is developed with Django, handling property
-              listings, user authentication, and database management. The
-              application allows users to browse, search, and filter properties
-              based on criteria such as location, price, and property type. The
-              admin panel enables realtors to add, update, and manage listings
-              efficiently.
+              JavaScript from the frontend, providing a clean and responsive
+              user interface. The backend is developed with Django, handling
+              property listings, user authentication, and database management.
+              The application allows users to browse, search, and filter
+              properties based on criteria such as location, price, and property
+              type. The admin panel enables realtors to add, update, and manage
+              listings efficiently.
             </p>
           </div>
 
