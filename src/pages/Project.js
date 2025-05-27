@@ -8,7 +8,7 @@ function Project() {
         <div className="img-grid">
           <div className="text-box">
             <h2 className="project-title">
-              <a href="https://https://net-yeona-flix.netlify.app">
+              <a href="https://net-yeona-flix.netlify.app">
                 Neflix(Demo) ⭢
               </a>
             </h2>

@@ -5,7 +5,7 @@ function Home() {
   return (
     <section name="home" className="section-hero">
       <p className="hero-text-box">
-        I am a full stack web developer based in Minneapolis who loves traveling
+        I am a full stack web developer who loves traveling
         the world, exploring nature, and discovering new coffee shops. I've
         built several projects using [{" "}
         <strong className="strong-text">
